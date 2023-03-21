@@ -38,10 +38,10 @@ public class Kalkulator extends javax.swing.JPanel {
         tinggi = new javax.swing.JTextField();
         hitung = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        luas = new javax.swing.JTextField();
-        volume = new javax.swing.JTextField();
+        hasil = new javax.swing.JTextField();
         reset = new javax.swing.JButton();
+        luas = new javax.swing.JRadioButton();
+        volume = new javax.swing.JRadioButton();
 
         jTextField3.setText("jTextField3");
 
@@ -56,11 +56,11 @@ public class Kalkulator extends javax.swing.JPanel {
 
         jLabel4.setText("Tinggi");
 
-        panjang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hitungActionPerformed(evt);
-            }
-        });
+        // panjang.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         panjangActionPerformed(evt);
+        //     }
+        // });
 
         hitung.setBackground(java.awt.Color.lightGray);
         hitung.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -71,15 +71,14 @@ public class Kalkulator extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Luas Balok");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Hasil");
 
-        jLabel6.setText("Volume Balok");
-
-        luas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
-            }
-        });
+        // hasil.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         hasilActionPerformed(evt);
+        //     }
+        // });
 
         reset.setBackground(java.awt.Color.lightGray);
         reset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -89,6 +88,15 @@ public class Kalkulator extends javax.swing.JPanel {
                 resetActionPerformed(evt);
             }
         });
+
+        luas.setText("Luas Permukaan");
+        luas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                luasActionPerformed(evt);
+            }
+        });
+
+        volume.setText("Volume");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -100,13 +108,13 @@ public class Kalkulator extends javax.swing.JPanel {
                         .addGap(234, 234, 234)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
+                        .addGap(214, 214, 214)
                         .addComponent(hitung)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(reset))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,16 +129,14 @@ public class Kalkulator extends javax.swing.JPanel {
                                     .addComponent(lebar)
                                     .addComponent(tinggi, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(luas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(volume)))))))
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(luas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(volume)))))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,25 +156,24 @@ public class Kalkulator extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(tinggi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(luas)
+                    .addComponent(volume))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hitung)
                     .addComponent(reset))
-                .addGap(42, 42, 42)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(luas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(volume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
+                    .addComponent(hasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungActionPerformed
-        // TODO add your handling code here:
+    private void hitungActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == hitung) {
             String inputPanjang = panjang.getText();
             String inputLebar = lebar.getText();
@@ -180,13 +185,19 @@ public class Kalkulator extends javax.swing.JPanel {
                     double p = Double.parseDouble(inputPanjang);
                     double l = Double.parseDouble(inputLebar);
                     double t = Double.parseDouble(inputTinggi);
-
-                    double volumeBalok = p * l * t;
-                    double luasBalok = 2 * ((p * l) + (p * t) + (l * t));
-
-
-                    volume.setText(Double.toString(volumeBalok));
-                    luas.setText(Double.toString(luasBalok));
+                    if (luas.isSelected() && volume.isSelected()) {
+                        JOptionPane.showMessageDialog(this, "Anda hanya dapat memilih salah satu opsi");
+                    } else if (luas.isSelected()) {
+                        double luasBalok = 2 * ((p * l) + (p * t) + (l * t));
+                        hasil.setText(Double.toString(luasBalok));
+                    } else if (volume.isSelected()) {
+                        double volumeBalok = p * l * t;
+                        hasil.setText(Double.toString(volumeBalok));
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Anda belum memilih opsi");
+                    }
+                
+                    
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(this, "Input harus berupa angka!");
                 }
@@ -194,32 +205,34 @@ public class Kalkulator extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_hitungActionPerformed
 
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        // TODO add your handling code here:
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == reset) {
             panjang.setText("");
             lebar.setText("");
             tinggi.setText("");
-            volume.setText("");
-            luas.setText("");
+            hasil.setText("");
+            luas.setSelected(false);
+            volume.setSelected(false);
         }
     }//GEN-LAST:event_resetActionPerformed
 
+    private void luasActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField hasil;
     private javax.swing.JButton hitung;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField lebar;
-    private javax.swing.JTextField luas;
+    private javax.swing.JRadioButton luas;
     private javax.swing.JTextField panjang;
     private javax.swing.JButton reset;
     private javax.swing.JTextField tinggi;
-    private javax.swing.JTextField volume;
+    private javax.swing.JRadioButton volume;
     // End of variables declaration//GEN-END:variables
 }
